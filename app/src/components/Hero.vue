@@ -4,7 +4,7 @@
       <!-- Background Image -->
       <div class="absolute inset-0 z-0">
         <img
-          src="../assets/White tshirt.png"
+          src="../assets/Tshirt.png"
           class="size-full object-cover scale-105 opacity-0"
           alt="Relume placeholder image"
           ref="heroBg"
