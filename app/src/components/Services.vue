@@ -81,14 +81,14 @@
 import { ref, onMounted, onBeforeUnmount } from "vue";
 import hoodie from "@/assets/hoodie.png";
 import Cup from "@/assets/Cup.png";
-import flask from "@/assets/flask.png";
+import Flask from "@/assets/Flask.png";
 import WhiteTshirt from "@/assets/White Tshirt.png";
 
 
   const cards = [
   { title: "Hoodie Printing", image: hoodie, text: "High-quality custom hoodie prints for your brand or events." },
   { title: "Mug & Cup Printing", image: Cup, text: "Durable and vibrant mug printing for gifts or merchandise." },
-  { title: "Flask Printing", image: flask, text: "Personalized flask printing with elegant, lasting finishes." },
+  { title: "Flask Printing", image: Flask, text: "Personalized flask printing with elegant, lasting finishes." },
   { title: "T-Shirt Printing", image: WhiteTshirt, text: "Custom t-shirt designs for all occasions and styles." },
 ]
 
