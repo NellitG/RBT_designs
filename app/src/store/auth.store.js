@@ -13,7 +13,6 @@ export const useAuthStore = defineStore("auth", () => {
   const access_token = ref(useLocalStorage("x-token", null));
   const returnUrl = ref(null);
   const error = ref(null);
-  const isLoginModalOpen = ref(false);
   let login;
 
   /**Login method for local instance */
@@ -34,16 +33,10 @@ export const useAuthStore = defineStore("auth", () => {
 
     console.log(fetchedUser);
 
-    /**update pinia state */
+    // update pinia state
     user.value = JSON.stringify(fetchedUser);
 
-    /**capture the access token*/
-    access_token.value = fetchedUser.token ? fetchedUser.token : null;
-
-    /**Close Login Modal */
-    isLoginModalOpen.value = false;
-
-    /**redirect to previous url or default to home page */
+    // redirect to previous url or default to home page
     router.push(returnUrl.value || "/");
   }
 
@@ -56,11 +49,8 @@ export const useAuthStore = defineStore("auth", () => {
           ? JSON.stringify(response.data.user)
           : null;
 
-        /**capture the access token*/
+        //capture the access token
         access_token.value = response.data ? response.data.token : null;
-
-        /**Close Login Modal */
-        isLoginModalOpen.value = false;
       })
       .catch((err) => {
         console.log(err);
@@ -68,7 +58,7 @@ export const useAuthStore = defineStore("auth", () => {
         error.value = err.response ? err.response.data.message : err.message;
       });
 
-    /**redirect to previous url or default to home page */
+    // redirect to previous url or default to home page
     router.push(returnUrl.value || "/");
   }
 
@@ -91,10 +81,7 @@ export const useAuthStore = defineStore("auth", () => {
   function logout() {
     user.value = null;
     access_token.value = null;
-    /**Open login modal */
-    isLoginModalOpen.value = true;
-    /**Navigate to landing page */
-    router.push("/");
+    router.push("/login");
   }
 
   /**Identify the login method */
@@ -104,5 +91,5 @@ export const useAuthStore = defineStore("auth", () => {
     login = login_remote;
   }
 
-  return { user, returnUrl, error, isLoginModalOpen, test, login, logout };
+  return { user, returnUrl, error, test, login, logout };
 });

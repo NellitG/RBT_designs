@@ -7,14 +7,14 @@ function fakeBackend() {
       username: "test@gmail.com",
       password: "test",
       firstName: "Test",
-      lastName: "User",    
+      lastName: "User",
     },
     {
       id: 2,
       username: "joekaranja@gmail.com",
       password: "joe123",
       firstName: "Joe",
-      lastName: "Karanja",      
+      lastName: "Karanja",
     },
   ];
 

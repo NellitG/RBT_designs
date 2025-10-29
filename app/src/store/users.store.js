@@ -10,10 +10,7 @@ export const useUsersStore = defineStore("users", () => {
     users.value = { loading: true };
     fetchWrapper
       .get(baseUrl)
-      .then((fetchedUsers) => {
-        users.value = fetchedUsers;
-        console.log(fetchedUsers);
-      })
+      .then((fetchedUsers) => (users.value = fetchedUsers))
       .catch((error) => (users.value = { error }));
   }
 
