@@ -95,14 +95,19 @@
         <!-- Submit Button -->
         <button
           type="submit"
+          :disabled="loading"
           class="bg-green-500 text-white px-6 py-2 rounded-lg transition"
         >
-          Send Message
+          {{ loading ? 'Sending...' : 'Send Message' }}
         </button>
 
         <!-- Success Message -->
         <p v-if="successMessage" class="text-green-600 font-medium mt-3">
           {{ successMessage }}
+        </p>
+        <!-- Error Message -->
+        <p v-if="errorMessage" class="text-red-600 font-medium mt-3">
+          {{ errorMessage }}
         </p>
       </form>
     </div>
@@ -153,13 +158,13 @@ function validateForm() {
 
 async function submitForm() {
   if (!validateForm()) return
-
   loading.value = true
   successMessage.value = ''
   errorMessage.value = ''
 
   try {
-    const response = await fetch('http://localhost:8000/api/contacts/', {
+    const API_URL = import.meta.env.VITE_API_URL || ''
+    const response = await fetch(``, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -172,18 +177,18 @@ async function submitForm() {
       })
     })
 
-    if (!response.ok) throw new Error('Failed to submit form.')
     const data = await response.json()
-    successMessage.value = data.message || '✅ Message sent successfully!'
-    setTimeout(() => {
-      successMessage.value = ''
-    }, 5000)
+    if (!response.ok) throw new Error(data.detail || data.error || 'Submission failed.')
 
+    successMessage.value = data.message || '✅ Message sent successfully!'
     form.value = { firstName: '', lastName: '', email: '', phone: '', topic: '', message: '', termsAccepted: false }
+
   } catch (err) {
     errorMessage.value = err.message || '❌ Something went wrong. Please try again.'
   } finally {
     loading.value = false
+    setTimeout(() => (successMessage.value = ''), 5000)
   }
 }
+
 </script>
