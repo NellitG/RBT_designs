@@ -18,7 +18,7 @@
 
         <!-- Right side: Auth buttons + Hamburger -->
         <div class="flex items-center space-x-4">
-          <a href="/Contact" class="px-4 py-2  border border-black text-black rounded-lg">Contact Us</a>
+          <a href="/Contact" class="px-4 py-2  border border-black text-black rounded-lg">Contact</a>
   
           <!-- Hamburger icon (mobile only) -->
           <button id="menu-toggle" class="md:hidden">
