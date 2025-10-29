@@ -242,7 +242,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const nextBtn = document.getElementById('next-btn');
   const prevBtn = document.getElementById('prev-btn');
 
-  const scrollAmount = carousel.offsetWidth * 0.9; // Adjust scroll size as needed
+  // ✅ Only run if carousel exists
+  if (!carousel || !nextBtn || !prevBtn) return;
+
+  const scrollAmount = carousel.offsetWidth * 0.9;
 
   nextBtn.addEventListener('click', () => {
     carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
@@ -252,13 +255,13 @@ document.addEventListener('DOMContentLoaded', () => {
     carousel.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
   });
 
-  // Enable/disable buttons based on scroll position
   const updateButtons = () => {
     prevBtn.disabled = carousel.scrollLeft <= 0;
     nextBtn.disabled = carousel.scrollLeft + carousel.offsetWidth >= carousel.scrollWidth;
   };
 
   carousel.addEventListener('scroll', updateButtons);
-  updateButtons(); // Initial state
+  updateButtons();
 });
 </script>
+
