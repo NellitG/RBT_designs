@@ -8,13 +8,13 @@ const routes = [
   { path: "/posts", name: "posts", component: PostsView },
   { path: "/posts/:id", name: "details", component: DetailsView, props: true },
   { path:"/portfolio", name:"Portfolio", component: () => import("../views/PortfolioView.vue")},
-  {path:"/pictures", name:"pictures", component: () => import("../views/PicturesView.vue")},
-  {path:"/process", name:"process", component: () => import("../views/ProcessView.vue")},
-  {path:"/shop", name:"Shop", component: () => import("../views/ShopView.vue")},
-  {path: "/Contact", name: "Contact", component: () => import("../views/ContactView.vue")},
-  {path: "/destination", name: "destination", component: () => import("../views/DestinationView.vue")},
-  {path: "/book", name: "book", component: () => import("../views/BookView.vue")},
-  {path: "/Learn", name: "Learn", component: () => import("../views/LearnView.vue"),}
+  { path:"/pictures", name:"pictures", component: () => import("../views/PicturesView.vue")},
+  { path:"/process", name:"process", component: () => import("../views/ProcessView.vue")},
+  { path:"/shop", name:"Shop", component: () => import("../views/ShopView.vue")},
+  { path: "/contact", name: "Contact", component: () => import("../views/ContactView.vue")},
+  { path: "/destination", name: "destination", component: () => import("../views/DestinationView.vue")},
+  { path: "/book", name: "book", component: () => import("../views/BookView.vue")},
+  { path: "/Learn", name: "Learn", component: () => import("../views/LearnView.vue"),}
 ];
 
 /**Initialize here */
