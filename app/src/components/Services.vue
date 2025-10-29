@@ -79,10 +79,11 @@
 
 <script setup>
 import { ref, onMounted, onBeforeUnmount } from "vue";
-import hoodie from "../assets/hoodie.png";
-import cup from "../assets/cup.png";
-import flask from "../assets/flask.png";
-import WhiteTshirt from "../assets/White tshirt.png";
+import hoodie from "@/assets/hoodie.png";
+import cup from "@/assets/cup.png";
+import flask from "@/assets/flask.png";
+import WhiteTshirt from "@/assets/White Tshirt.png";
+
 
   const cards = [
   { title: "Hoodie Printing", image: hoodie, text: "High-quality custom hoodie prints for your brand or events." },
